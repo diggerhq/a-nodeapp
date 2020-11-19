@@ -9,3 +9,7 @@ routers:
   - application_name: a-nodeapp
     paths:
     - /
+databases:
+- type: postgresql # database type
+  version: "11.5" # database version
+  name: my-db # database name (must be unique)
