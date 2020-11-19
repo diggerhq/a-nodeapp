@@ -1,0 +1,11 @@
+application:
+  name: a-nodeapp
+  project: qo-test
+  publicly_accessible: true
+  organization: QoveryCommunity
+routers:
+- name: main
+  routes:
+  - application_name: a-nodeapp
+    paths:
+    - /
