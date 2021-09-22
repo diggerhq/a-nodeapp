@@ -7,10 +7,12 @@ router.all('*', function(req, res, next) {
   const host = req.get('host')
   const originalUrl = JSON.stringify(req.originalUrl)
   const querystring = JSON.stringify(req.query)
+  const path = req.originalUrl
   res.render('index', { 
     title: 'Testvar: ' + testvar,
     host: host,
-    querystring: querystring
+    querystring: querystring,
+    path: path
   });
 });
 
