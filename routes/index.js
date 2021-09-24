@@ -9,13 +9,15 @@ router.all('*', function(req, res, next) {
   const querystring = JSON.stringify(req.query)
   const path = req.originalUrl
   const origin = req.get('origin');
+  const headers = JSON.stringify(req.headers)
 
   res.render('index', { 
     title: 'Testvar: ' + testvar,
     host: host,
     querystring: querystring,
     path: path,
-    origin: origin
+    origin: origin,
+    headers: headers
   });
 });
 
