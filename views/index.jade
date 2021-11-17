@@ -1,10 +1,26 @@
 extends layout
 
 block content
-  h1= title
-  p Hi, welcome to #{title} - 
-  p host #{host}
-  p #{querystring}
-  p path #{path}
-  p origin #{origin}
-  p headers #{headers}
+  div.logoBase
+    div.logoContainer
+      img(src="digger-logo.png")
+  h1 Congratulations! You have deployed a service on Digger
+  h2 This is the default output of our sample app
+    a(href="https://github.com/diggerhq/a-nodeapp") https://github.com/diggerhq/a-nodeapp
+  div.table
+    div.row
+      div.label host:
+      div.value=host
+    div.row
+      div.label querystring:
+      div.value=querystring
+    div.row
+      div.label path:
+      div.value=path
+    div.row
+      div.label origin:
+      div.value=origin
+    div.row
+      div.label headers:
+      div.value
+        div.headers=headers

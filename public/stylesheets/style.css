@@ -1,8 +1,64 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #0D343D;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 a {
   color: #00B7FF;
+}
+
+.logoBase {
+  display: flex;
+  justify-content: center;
+}
+
+.logoContainer {
+  background-color: white;
+  width: 320px;
+  border-radius: 50px;
+}
+
+h1, h2 {
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+a {
+  margin-left: 20px;
+}
+
+.table {
+  margin-top: 30px;
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+  margin-top: 10px;
+}
+
+.label {
+  flex: 0 0 20%;
+  background-color: #CCCCCC;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.value {
+  flex: 0 0 80%;
+  background-color: white;
+  padding: 20px;
+  text-overflow: initial;
+}
+
+.headers {
+  width: 88%;
+  overflow-wrap: anywhere;
 }
