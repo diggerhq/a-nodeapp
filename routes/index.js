@@ -1,9 +1,30 @@
 var express = require('express');
 var router = express.Router();
+// import { createClient } from 'redis';
+var redis = require("redis");
+
+
+async function redis_test(url) {
+  const client = redis.createClient({
+    url: url
+  });
+
+  client.on('error', (err) => console.log('Redis Client Error', err));
+
+  await client.connect();
+
+  await client.set('key', 'value');
+  const value = await client.get('key');
+  return value
+}
 
 /* GET home page. */
-router.all('*', function(req, res, next) {
-  const testvar = process.env.TESTVAR;
+router.all('*', async function(req, res, next) {
+  
+  const REDIS_URL = process.env.REDIS_HOST
+  let value = await redis_test(REDIS_URL)
+  const testvar = process.env.TESTVAR + "reds_value: " + value;
+
   const host = req.get('host')
   const originalUrl = JSON.stringify(req.originalUrl)
   const querystring = JSON.stringify(req.query)
