@@ -21,7 +21,7 @@ async function redis_test(url) {
 /* GET home page. */
 router.all('*', async function(req, res, next) {
   
-  const REDIS_URL = process.env.REDIS_HOST
+  const REDIS_URL = process.env.REDIS_URL
   let value = await redis_test(REDIS_URL)
   const testvar = process.env.TESTVAR + "reds_value: " + value;
 
