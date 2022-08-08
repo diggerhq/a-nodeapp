@@ -1,0 +1,5 @@
+services:
+- name: nodeapp-test
+  type: web
+  env: docker
+  
