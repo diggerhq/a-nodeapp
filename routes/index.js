@@ -18,10 +18,8 @@ async function redis_test(url) {
 }
 
 function mysql_test(url) {
-
-    let connection = mysql.createConnection({
-      url: url
-    });
+    console.log("url is", url)
+    let connection = mysql.createConnection(url);
 
     connection.connect(function(err) {
       if (err) {
@@ -34,7 +32,6 @@ function mysql_test(url) {
 
 
 router.get("/test-mysql", async function(req, res, next) {
-  console.log("aadsfadsfs")
   req.on('error', function blah () {});
   const DATABASE_URL = process.env.DATABASE_URL
 
