@@ -17,21 +17,59 @@ async function redis_test(url) {
   return value
 }
 
-async function mysql_test(url) {
-  let connection = mysql.createConnection({
-    url: url
-  });
-  await connection.connect()
+function mysql_test(url) {
 
-}
-/* GET home page. */
-router.all('*', async function(req, res, next) {
-  
-  const REDIS_URL = process.env.REDIS_URL
+    let connection = mysql.createConnection({
+      url: url
+    });
+
+    connection.connect(function(err) {
+      if (err) {
+        return console.error('error: ' + err.message);
+      }
+
+      console.log('Connected to the MySQL server.');
+    })  
+  }
+
+
+router.get("/test-mysql", async function(req, res, next) {
+  console.log("aadsfadsfs")
+  req.on('error', function blah () {});
   const DATABASE_URL = process.env.DATABASE_URL
-  let value = await redis_test(REDIS_URL)
-  await mysql_test(DATABASE_URL)
-  
+
+  const host = req.get('host')
+  const originalUrl = JSON.stringify(req.originalUrl)
+  const querystring = JSON.stringify(req.query)
+  const path = req.originalUrl
+  const origin = req.get('origin');
+  const headers = JSON.stringify(req.headers)
+
+  // let value = await redis_test(REDIS_URL)
+  let value = "xx"
+  try {
+    mysql_test(DATABASE_URL)    
+  } catch(e) {
+    next(e)
+    console.log(e)
+  }
+
+  res.render('index', { 
+    title: 'Testvar: ',
+    host: host,
+    querystring: querystring,
+    path: path,
+    origin: origin,
+    headers: headers
+  });    
+})
+
+/* GET home page. */
+router.get('/', async function(req, res, next) {
+
+  const REDIS_URL = process.env.REDIS_URL
+
+  const value = "redis"
   const testvar = process.env.TESTVAR + "reds_value: " + value;
 
   const host = req.get('host')
