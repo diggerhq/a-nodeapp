@@ -42,7 +42,7 @@ router.get("/test-mysql", async function(req, res, next) {
   const origin = req.get('origin');
   const headers = JSON.stringify(req.headers)
 
-  // let value = await redis_test(REDIS_URL)
+  let value = await redis_test(REDIS_URL)
   let value = "xx"
   try {
     mysql_test(DATABASE_URL)    
