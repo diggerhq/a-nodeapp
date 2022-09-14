@@ -1,7 +1,7 @@
 services:
 - name: nodeapp-test
   type: web
-  foo: barrr
+  foo: bar
   env: docker
   
 
