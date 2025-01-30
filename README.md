@@ -1,5 +1,3 @@
 # a-nodeapp
 
-Demo nodeapp
-
-- mock content
+Catch-all repo for testing all sorts of github apps internally
