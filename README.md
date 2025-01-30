@@ -1,5 +1,3 @@
 # a-nodeapp
 
-Demo nodeapp
-
-- mock content
+some stuff
