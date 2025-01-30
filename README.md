@@ -1,5 +1,3 @@
 # a-nodeapp
 
-Demo nodeapp
-
-- mock content
+A catch-all repo for all sorts of testing
