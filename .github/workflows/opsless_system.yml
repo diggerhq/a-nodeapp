@@ -27,11 +27,13 @@ jobs:
       - name: Terraform Plan
         working-directory: opsless_system
         env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
           TF_VAR_project_id: ${{ secrets.OPSLESS_GCP_PROJECT_ID }}
         run: terraform plan -input=false -var="bucket_name=opsless-tfstate"
 
       - name: Terraform Apply
         working-directory: opsless_system
         env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
           TF_VAR_project_id: ${{ secrets.OPSLESS_GCP_PROJECT_ID }}
         run: terraform apply -auto-approve -input=false -var="bucket_name=opsless-tfstate"
