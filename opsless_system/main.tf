@@ -9,6 +9,7 @@ terraform {
   }
 }
 
+
 provider "google" {
   # You can also specify credentials if needed, e.g.:
   # credentials = file("path/to/service_account_key.json")
