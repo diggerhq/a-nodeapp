@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - 'opsless_system/**'  # Only trigger if files in opsless_system/ are changed
+      - 'opsless_system/**/*.tf'  # Only trigger if files in opsless_system/ are changed
       - '.github/workflows/opsless_system.yml'  # (optional) if you want updates to the workflow itself to trigger a run
 
 jobs:
