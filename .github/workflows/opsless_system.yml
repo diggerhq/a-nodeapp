@@ -3,7 +3,7 @@ name: Opsless - System
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - 'opsless_system/**/*.tf'  # Only trigger if files in opsless_system/ are changed
       - '.github/workflows/opsless_system.yml'  # (optional) if you want updates to the workflow itself to trigger a run
