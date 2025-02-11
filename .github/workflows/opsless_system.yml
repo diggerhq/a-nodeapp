@@ -1,10 +1,9 @@
-
 name: Opsless - System
 
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - 'opsless_system/**/*.tf'  # Only trigger if files in opsless_system/ are changed
       - '.github/workflows/opsless_system.yml'  # (optional) if you want updates to the workflow itself to trigger a run
@@ -19,7 +18,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
-          terraform_version: 1.4.0 # Set your preferred version
+          terraform_version: 1.4.0
 
       - name: Terraform Init
         working-directory: opsless_system
@@ -27,8 +26,8 @@ jobs:
 
       - name: Terraform Plan
         working-directory: opsless_system
-        run: terraform plan
+        run: terraform plan -input=false -var="bucket_name=opsless-tfstate"
 
       - name: Terraform Apply
         working-directory: opsless_system
-        run: terraform apply -auto-approve
+        run: terraform apply -auto-approve -input=false -var="bucket_name=opsless-tfstate"
