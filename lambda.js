@@ -12,3 +12,4 @@ exports.handler =  async function(event, context) {
     body: "<h1>Hello from digger!!</h1>"
   }
 }
+
